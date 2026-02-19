@@ -6,6 +6,11 @@
   <title>Nicholas Hidalgo | Business Systems & Data Leader</title>
   <meta name="description" content="Portfolio of Nicholas Hidalgo - Business Systems & Data Leader | Connecting Enterprise BI & ERP to Production AI" />
 
+  <!-- Progressive enhancement flag: only set if JS is running -->
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -42,19 +47,9 @@
               "0%, 100%": { transform: "translate3d(0, 0, 0)" },
               "50%": { transform: "translate3d(0, -8px, 0)" },
             },
-            fadeUp: {
-              "0%": { opacity: "0", transform: "translate3d(0, 14px, 0)" },
-              "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
-            },
-            shimmer: {
-              "0%": { transform: "translateX(-120%)" },
-              "100%": { transform: "translateX(120%)" },
-            },
           },
           animation: {
             floaty: "floaty 6s ease-in-out infinite",
-            fadeUp: "fadeUp 700ms ease-out both",
-            shimmer: "shimmer 2.4s ease-in-out infinite",
           },
           boxShadow: {
             premium: "0 12px 60px rgba(0,0,0,0.45)",
@@ -66,15 +61,9 @@
   </script>
 
   <style>
-    :root {
-      --grain-opacity: 0.08;
-    }
+    :root { --grain-opacity: 0.08; }
+    body { background: #000; }
 
-    body {
-      background: #000;
-    }
-
-    /* Premium grain overlay */
     .grain {
       pointer-events: none;
       position: fixed;
@@ -85,7 +74,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
     }
 
-    /* Soft background orbs */
     .orb {
       position: absolute;
       border-radius: 9999px;
@@ -94,13 +82,6 @@
       transform: translateZ(0);
     }
 
-    /* Typography tweaks */
-    .scope-heading {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    /* Navigation links */
     .nav-link {
       position: relative;
       font-size: 10px;
@@ -129,31 +110,8 @@
       background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9), rgba(255,255,255,0));
       opacity: 0.8;
     }
-    .nav-link:hover::after {
-      transform: scaleX(1);
-    }
+    .nav-link:hover::after { transform: scaleX(1); }
 
-    /* Slider arrows (kept, but softened) */
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.18);
-      font-size: 3rem;
-      cursor: pointer;
-      transition: color 0.25s, transform 0.25s;
-      z-index: 20;
-      padding: 20px;
-      user-select: none;
-    }
-    .slider-arrow:hover {
-      color: rgba(255, 255, 255, 0.9);
-      transform: translateY(-50%) scale(1.06);
-    }
-    .slider-arrow.left { left: 18px; }
-    .slider-arrow.right { right: 18px; }
-
-    /* Header background */
     .nav-bg {
       background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 60%, transparent 100%);
     }
@@ -165,23 +123,19 @@
       padding-bottom: 10px !important;
     }
 
-    /* Reveal animations */
-    .reveal {
+    /* Reveal (JS-safe): default visible, only hidden when JS sets .js */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal {
       opacity: 0;
       transform: translate3d(0, 16px, 0);
       transition: opacity 600ms ease, transform 600ms ease;
     }
-    .reveal.reveal-in {
+    .js .reveal.reveal-in {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
 
-    /* Premium button */
-    .btn-premium {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
+    .btn-premium { position: relative; overflow: hidden; isolation: isolate; }
     .btn-premium::before {
       content: "";
       position: absolute;
@@ -191,11 +145,8 @@
       transition: opacity 250ms ease;
       z-index: -1;
     }
-    .btn-premium:hover::before {
-      opacity: 1;
-    }
+    .btn-premium:hover::before { opacity: 1; }
 
-    /* Card hover */
     .card-lift {
       transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, filter 280ms ease;
     }
@@ -204,14 +155,6 @@
       border-color: rgba(255,255,255,0.22) !important;
       box-shadow: 0 18px 55px rgba(0,0,0,0.42);
       filter: saturate(1.06);
-    }
-
-    /* Subtle gradient text */
-    .grad-text {
-      background: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0.78), rgba(255,255,255,1));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
     }
   </style>
 </head>
@@ -273,7 +216,7 @@
       <div class="orb w-[420px] h-[420px] left-[20%] bottom-[-240px]" style="background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.14), transparent 62%);"></div>
     </div>
 
-    <!-- Background image (parallax subtle) -->
+    <!-- Background image -->
     <div class="absolute inset-0 z-0 bg-black">
       <img
         id="hero-bg"
@@ -284,10 +227,6 @@
       <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 20%, rgba(0,0,0,0.15), rgba(0,0,0,0.82) 60%, rgba(0,0,0,0.95));"></div>
       <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.92));"></div>
     </div>
-
-    <!-- Navigation arrows -->
-    <div class="slider-arrow left hidden md:block"><i class="fas fa-chevron-left"></i></div>
-    <div class="slider-arrow right hidden md:block"><i class="fas fa-chevron-right"></i></div>
 
     <!-- Content -->
     <div class="relative z-10 text-center px-4 w-full mt-16 max-w-6xl mx-auto">
@@ -320,14 +259,24 @@
             </a>
           </div>
 
-          <div class="mt-10 text-[10px] tracking-[0.28em] uppercase text-gray-300/70 reveal reveal-in" style="transition-delay: 240ms;">
+          <!-- Credibility strip -->
+          <div class="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-[10px] md:text-[11px] uppercase tracking-[0.26em] text-gray-200/80 reveal"
+               style="transition-delay: 220ms;">
+            <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white/70 inline-block"></span> Enterprise BI & ERP</span>
+            <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white/70 inline-block"></span> Governed analytics</span>
+            <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white/70 inline-block"></span> Applied AI with audit trails</span>
+            <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white/70 inline-block"></span> Data quality gates</span>
+            <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 bg-white/70 inline-block"></span> Operational reporting</span>
+          </div>
+
+          <div class="mt-10 text-[10px] tracking-[0.28em] uppercase text-gray-300/70 reveal" style="transition-delay: 240ms;">
             Boston, MA · Open to leadership roles in data platforms, business systems, and applied AI
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Chat Widget Bubble (kept but refined) -->
+    <!-- Chat Widget Bubble -->
     <div class="absolute bottom-10 right-10 z-30 hidden lg:block">
       <div class="flex items-center gap-4">
         <div class="bg-white px-5 py-3 shadow-premium text-black text-xs font-bold font-heading tracking-wide border border-black/5">
@@ -345,7 +294,7 @@
     <div class="container mx-auto px-8">
       <div class="text-center mb-24 reveal">
         <h2 class="font-heading font-black text-4xl md:text-5xl uppercase tracking-[0.15em] mb-6">
-          Recent Writing
+          Writing
         </h2>
         <div class="w-16 h-1 bg-black mx-auto"></div>
         <p class="mt-6 text-gray-700 max-w-2xl mx-auto leading-7">
@@ -367,7 +316,7 @@
           <p class="font-sans text-gray-600 leading-relaxed text-sm mb-8 border-l-2 border-black pl-6">
             Most AI efforts fail in the handoff from prototype to operations. The fix is not a better model. It’s governance, observability, and contracts that survive real workflows.
           </p>
-          <a href="#" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read (Coming soon)</a>
+          <a href="writing/ai-demos-vs-production.html" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read</a>
         </div>
 
         <!-- Article 2 -->
@@ -383,9 +332,28 @@
           <p class="font-sans text-gray-600 leading-relaxed text-sm mb-8 border-l-2 border-black pl-6">
             The fastest dashboards still fail if the data is not trusted. The playbook is definition control, quality gates, and a release process that treats reporting like a product.
           </p>
-          <a href="#" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read (Coming soon)</a>
+          <a href="writing/reporting-people-actually-use.html" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read</a>
         </div>
       </div>
+
+      <!-- Third article teaser row (optional but included so it doesn't feel empty) -->
+      <div class="mt-16 grid md:grid-cols-2 gap-16">
+        <div class="group cursor-pointer reveal md:col-span-2">
+          <div class="overflow-hidden mb-8 relative aspect-[16/6] shadow-subtle">
+            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2200&auto=format&fit=crop" alt="Trust and systems"
+                 class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 grayscale group-hover:grayscale-0">
+            <div class="absolute top-6 left-6 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">Applied AI</div>
+          </div>
+          <h3 class="font-heading font-bold text-3xl uppercase tracking-wide mb-4 group-hover:text-gray-600 transition">
+            Shipping AI without breaking trust
+          </h3>
+          <p class="font-sans text-gray-600 leading-relaxed text-sm mb-8 border-l-2 border-black pl-6 max-w-3xl">
+            Enterprise adoption is rarely blocked by model capability. It’s blocked by trust. The unlock is constrained rollouts, auditability, and an operating model that makes behavior explainable.
+          </p>
+          <a href="writing/shipping-ai-without-breaking-trust.html" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -405,7 +373,6 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-16">
-        <!-- Column 1 -->
         <div class="border-t border-gray-700 pt-10 reveal">
           <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Strategy</h4>
           <p class="text-gray-400 text-sm leading-8 font-light mb-8">
@@ -414,7 +381,6 @@
           <a href="#projects" class="inline-block text-[10px] font-bold uppercase tracking-widest text-white border-b border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition">See the work</a>
         </div>
 
-        <!-- Column 2 -->
         <div class="border-t border-gray-700 pt-10 reveal">
           <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Scale</h4>
           <p class="text-gray-400 text-sm leading-8 font-light mb-8">
@@ -423,7 +389,6 @@
           <a href="#projects" class="inline-block text-[10px] font-bold uppercase tracking-widest text-white border-b border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition">View projects</a>
         </div>
 
-        <!-- Column 3 -->
         <div class="border-t border-gray-700 pt-10 reveal">
           <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Impact</h4>
           <p class="text-gray-400 text-sm leading-8 font-light mb-8">
@@ -455,7 +420,6 @@
 
       <div class="grid md:grid-cols-2 gap-8">
 
-        <!-- Project 1 -->
         <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
           <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop" alt="AI Control Plane"
                class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
@@ -480,7 +444,6 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
         <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
           <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Enterprise Reporting Platform"
                class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
@@ -499,7 +462,6 @@
           </div>
         </div>
 
-        <!-- Project 3 (full width) -->
         <div class="group relative bg-scope-dark overflow-hidden md:col-span-2 h-[520px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
           <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" alt="Executive Command Center"
                class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700">
@@ -527,7 +489,6 @@
           </div>
         </div>
 
-        <!-- Project 4 -->
         <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
           <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2232&auto=format&fit=crop" alt="Data Quality Automation"
                class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
@@ -546,7 +507,6 @@
           </div>
         </div>
 
-        <!-- Project 5 -->
         <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
           <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop" alt="Semantic Search"
                class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
@@ -669,18 +629,18 @@
     </div>
   </footer>
 
-  <!-- JS: Sticky Header + Reveal on scroll + Parallax + Premium button glow -->
+  <!-- JS -->
   <script>
-    // Sticky header
     window.addEventListener("scroll", function () {
       const nav = document.getElementById("main-nav");
       if (window.scrollY > 40) nav.classList.add("nav-scrolled");
       else nav.classList.remove("nav-scrolled");
     });
 
-    // Reveal on scroll
     (function () {
       const nodes = document.querySelectorAll(".reveal");
+      if (!nodes || nodes.length === 0) return;
+
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -693,7 +653,6 @@
       nodes.forEach((n) => io.observe(n));
     })();
 
-    // Subtle parallax for hero background (very light)
     (function () {
       const bg = document.getElementById("hero-bg");
       if (!bg) return;
@@ -712,7 +671,6 @@
       });
     })();
 
-    // Premium button glow tracking
     window.__btnGlow = function (ev) {
       const el = ev.currentTarget;
       const rect = el.getBoundingClientRect();
@@ -724,3 +682,4 @@
   </script>
 </body>
 </html>
+

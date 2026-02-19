@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicholas Hidalgo | Business Systems & Data Leader</title>
+  <meta name="description" content="Portfolio of Nicholas Hidalgo - Business Systems & Data Leader | Connecting Enterprise BI & ERP to Production AI" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Montserrat (Headers) & Raleway (Body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Raleway", "sans-serif"],
+            heading: ["Montserrat", "sans-serif"],
+          },
+          colors: {
+            scope: {
+              black: "#050505",
+              dark: "#121212",
+              card: "#1a1a1a",
+              accent: "#ffffff",
+              muted: "#9a9a9a",
+              border: "#2a2a2a",
+            },
+          },
+          letterSpacing: {
+            "widest-xl": "0.25em",
+            mega: "0.5em",
+          },
+          keyframes: {
+            floaty: {
+              "0%, 100%": { transform: "translate3d(0, 0, 0)" },
+              "50%": { transform: "translate3d(0, -8px, 0)" },
+            },
+            fadeUp: {
+              "0%": { opacity: "0", transform: "translate3d(0, 14px, 0)" },
+              "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
+            },
+            shimmer: {
+              "0%": { transform: "translateX(-120%)" },
+              "100%": { transform: "translateX(120%)" },
+            },
+          },
+          animation: {
+            floaty: "floaty 6s ease-in-out infinite",
+            fadeUp: "fadeUp 700ms ease-out both",
+            shimmer: "shimmer 2.4s ease-in-out infinite",
+          },
+          boxShadow: {
+            premium: "0 12px 60px rgba(0,0,0,0.45)",
+            subtle: "0 12px 30px rgba(0,0,0,0.28)",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --grain-opacity: 0.08;
+    }
+
+    body {
+      background: #000;
+    }
+
+    /* Premium grain overlay */
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      opacity: var(--grain-opacity);
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    }
+
+    /* Soft background orbs */
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(48px);
+      opacity: 0.35;
+      transform: translateZ(0);
+    }
+
+    /* Typography tweaks */
+    .scope-heading {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* Navigation links */
+    .nav-link {
+      position: relative;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #e5e5e5;
+      transition: color 0.25s, transform 0.25s;
+      white-space: nowrap;
+    }
+    .nav-link:hover {
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      height: 1px;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9), rgba(255,255,255,0));
+      opacity: 0.8;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Slider arrows (kept, but softened) */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.18);
+      font-size: 3rem;
+      cursor: pointer;
+      transition: color 0.25s, transform 0.25s;
+      z-index: 20;
+      padding: 20px;
+      user-select: none;
+    }
+    .slider-arrow:hover {
+      color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-50%) scale(1.06);
+    }
+    .slider-arrow.left { left: 18px; }
+    .slider-arrow.right { right: 18px; }
+
+    /* Header background */
+    .nav-bg {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 60%, transparent 100%);
+    }
+    .nav-scrolled {
+      background: rgba(0,0,0,0.68);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal.reveal-in {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Premium button */
+    .btn-premium {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .btn-premium::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.22), transparent 40%);
+      opacity: 0;
+      transition: opacity 250ms ease;
+      z-index: -1;
+    }
+    .btn-premium:hover::before {
+      opacity: 1;
+    }
+
+    /* Card hover */
+    .card-lift {
+      transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, filter 280ms ease;
+    }
+    .card-lift:hover {
+      transform: translate3d(0, -6px, 0);
+      border-color: rgba(255,255,255,0.22) !important;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.42);
+      filter: saturate(1.06);
+    }
+
+    /* Subtle gradient text */
+    .grad-text {
+      background: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0.78), rgba(255,255,255,1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-300 antialiased bg-black">
+  <div class="grain"></div>
+
+  <!-- Header / Navigation -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 py-4 md:py-6 transition-all duration-300 nav-bg">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex flex-wrap md:flex-nowrap justify-between items-center">
+
+        <!-- Left: Brand -->
+        <div class="flex-shrink-0 mr-4">
+          <a href="#home" class="flex flex-col justify-center leading-none group">
+            <span class="text-xl md:text-2xl font-heading font-black text-white tracking-[0.15em] uppercase group-hover:text-gray-200 transition">NICHOLAS</span>
+            <span class="text-xl md:text-2xl font-heading font-light text-gray-300 tracking-[0.15em] uppercase group-hover:text-white transition">HIDALGO</span>
+          </a>
+        </div>
+
+        <!-- Center: Navigation -->
+        <div class="hidden md:flex items-center justify-center gap-6 lg:gap-10">
+          <a href="#home" class="nav-link text-white">Home</a>
+          <a href="#articles" class="nav-link">Writing</a>
+          <a href="#about" class="nav-link">Philosophy</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Right: Socials -->
+        <div class="hidden md:flex items-center gap-6 flex-shrink-0 ml-4">
+          <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer" class="text-white hover:text-gray-300 transition duration-300 transform hover:scale-110" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nicholashidalgo/" target="_blank" rel="noreferrer" class="text-white hover:text-gray-300 transition duration-300 transform hover:scale-110" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="mailto:contact@nicholashidalgo.com" class="text-white hover:text-gray-300 transition duration-300 transform hover:scale-110" title="Email">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button (visual only for now) -->
+        <div class="md:hidden flex items-center text-white text-2xl cursor-pointer">
+          <i class="fas fa-bars"></i>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="relative h-screen min-h-[720px] flex items-center justify-center overflow-hidden bg-black">
+
+    <!-- Orbs -->
+    <div class="absolute inset-0 z-0">
+      <div class="orb w-[520px] h-[520px] left-[-180px] top-[120px]" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.26), transparent 60%);"></div>
+      <div class="orb w-[520px] h-[520px] right-[-220px] top-[220px]" style="background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.20), transparent 62%);"></div>
+      <div class="orb w-[420px] h-[420px] left-[20%] bottom-[-240px]" style="background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.14), transparent 62%);"></div>
+    </div>
+
+    <!-- Background image (parallax subtle) -->
+    <div class="absolute inset-0 z-0 bg-black">
+      <img
+        id="hero-bg"
+        src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=2000&auto=format&fit=crop"
+        alt="Geometric Dark Background"
+        class="w-full h-full object-cover opacity-65 scale-110"
+      />
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 20%, rgba(0,0,0,0.15), rgba(0,0,0,0.82) 60%, rgba(0,0,0,0.95));"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.92));"></div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="slider-arrow left hidden md:block"><i class="fas fa-chevron-left"></i></div>
+    <div class="slider-arrow right hidden md:block"><i class="fas fa-chevron-right"></i></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4 w-full mt-16 max-w-6xl mx-auto">
+      <div class="reveal reveal-in" style="transition-delay: 40ms;">
+        <h1 class="text-white font-heading font-black text-4xl md:text-6xl lg:text-7xl tracking-[0.1em] uppercase leading-tight drop-shadow-2xl mb-6">
+          BUSINESS SYSTEMS & <br /> DATA LEADER
+        </h1>
+
+        <div class="max-w-3xl mx-auto">
+          <p class="text-white font-heading font-bold text-sm md:text-base tracking-[0.2em] uppercase drop-shadow-md">
+            Connecting Enterprise BI & ERP to Production AI
+          </p>
+          <div class="h-[1px] w-16 bg-white/80 shadow-sm mx-auto mt-4 mb-3"></div>
+          <p class="text-gray-100 font-heading font-bold text-xs md:text-sm tracking-[0.3em] uppercase drop-shadow-md">
+            AI platforms, RAG, vector search, governed analytics
+          </p>
+
+          <p class="text-gray-200/90 text-sm md:text-base leading-7 mt-7 reveal reveal-in" style="transition-delay: 120ms;">
+            I build and run the systems that sit between operations, finance, and decision-making. That means enterprise reporting you can trust, data quality that holds up under pressure, and AI features that can safely touch real workflows.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center reveal reveal-in" style="transition-delay: 190ms;">
+            <a href="#projects" class="btn-premium inline-flex items-center justify-center bg-white text-black text-xs font-bold uppercase tracking-widest px-8 py-4 hover:bg-gray-100 transition rounded-none"
+               onmousemove="window.__btnGlow(event)">
+              View Projects
+            </a>
+            <a href="mailto:contact@nicholashidalgo.com" class="btn-premium inline-flex items-center justify-center border border-white/60 text-white text-xs font-bold uppercase tracking-widest px-8 py-4 hover:border-white hover:bg-white/10 transition rounded-none"
+               onmousemove="window.__btnGlow(event)">
+              Contact
+            </a>
+          </div>
+
+          <div class="mt-10 text-[10px] tracking-[0.28em] uppercase text-gray-300/70 reveal reveal-in" style="transition-delay: 240ms;">
+            Boston, MA · Open to leadership roles in data platforms, business systems, and applied AI
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Widget Bubble (kept but refined) -->
+    <div class="absolute bottom-10 right-10 z-30 hidden lg:block">
+      <div class="flex items-center gap-4">
+        <div class="bg-white px-5 py-3 shadow-premium text-black text-xs font-bold font-heading tracking-wide border border-black/5">
+          Hi. Want to talk systems, data, or AI execution?
+        </div>
+        <div class="w-14 h-14 border border-white/60 overflow-hidden shadow-subtle transition hover:scale-110 cursor-pointer animate-floaty">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Writing -->
+  <section id="articles" class="py-28 bg-white text-black">
+    <div class="container mx-auto px-8">
+      <div class="text-center mb-24 reveal">
+        <h2 class="font-heading font-black text-4xl md:text-5xl uppercase tracking-[0.15em] mb-6">
+          Recent Writing
+        </h2>
+        <div class="w-16 h-1 bg-black mx-auto"></div>
+        <p class="mt-6 text-gray-700 max-w-2xl mx-auto leading-7">
+          Short, practical notes on how to modernize reporting, govern data in messy environments, and ship AI features without breaking trust.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- Article 1 -->
+        <div class="group cursor-pointer reveal">
+          <div class="overflow-hidden mb-8 relative aspect-[4/3] shadow-subtle">
+            <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2006&auto=format&fit=crop" alt="AI Leadership"
+                 class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 grayscale group-hover:grayscale-0">
+            <div class="absolute top-6 left-6 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">AI Strategy</div>
+          </div>
+          <h3 class="font-heading font-bold text-3xl uppercase tracking-wide mb-4 group-hover:text-gray-600 transition">
+            The gap between AI demos and production systems
+          </h3>
+          <p class="font-sans text-gray-600 leading-relaxed text-sm mb-8 border-l-2 border-black pl-6">
+            Most AI efforts fail in the handoff from prototype to operations. The fix is not a better model. It’s governance, observability, and contracts that survive real workflows.
+          </p>
+          <a href="#" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read (Coming soon)</a>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="group cursor-pointer reveal">
+          <div class="overflow-hidden mb-8 relative aspect-[4/3] shadow-subtle">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop" alt="Workspace"
+                 class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 grayscale group-hover:grayscale-0">
+            <div class="absolute top-6 left-6 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">Operating Model</div>
+          </div>
+          <h3 class="font-heading font-bold text-3xl uppercase tracking-wide mb-4 group-hover:text-gray-600 transition">
+            Reporting people actually use
+          </h3>
+          <p class="font-sans text-gray-600 leading-relaxed text-sm mb-8 border-l-2 border-black pl-6">
+            The fastest dashboards still fail if the data is not trusted. The playbook is definition control, quality gates, and a release process that treats reporting like a product.
+          </p>
+          <a href="#" class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition">Read (Coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section id="about" class="py-28 bg-[#1a1a1a] text-white">
+    <div class="container mx-auto px-8">
+      <div class="mb-20 reveal">
+        <h2 class="font-heading font-black text-4xl md:text-5xl uppercase tracking-[0.1em] mb-4">
+          Philosophy
+        </h2>
+        <h3 class="font-heading font-light text-xl uppercase tracking-[0.3em] text-gray-500">
+          Data, Systems, and Execution
+        </h3>
+        <p class="mt-7 text-gray-400 max-w-3xl leading-7">
+          I work at the seam where operations, finance, and technology collide. My job is to make systems reliable, metrics defensible, and new capabilities safe to ship. That includes modern analytics, automation, and AI, but the priority is always the same: business outcomes you can stand behind.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-16">
+        <!-- Column 1 -->
+        <div class="border-t border-gray-700 pt-10 reveal">
+          <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Strategy</h4>
+          <p class="text-gray-400 text-sm leading-8 font-light mb-8">
+            Systems win when they are designed around decisions. I map KPIs to workflows, define metrics once, and build reporting and automation that stays correct as the business changes.
+          </p>
+          <a href="#projects" class="inline-block text-[10px] font-bold uppercase tracking-widest text-white border-b border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition">See the work</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="border-t border-gray-700 pt-10 reveal">
+          <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Scale</h4>
+          <p class="text-gray-400 text-sm leading-8 font-light mb-8">
+            I modernize legacy environments without breaking the business. That means staged migrations, governed datasets, quality gates, and interfaces that let domain teams move faster with fewer surprises.
+          </p>
+          <a href="#projects" class="inline-block text-[10px] font-bold uppercase tracking-widest text-white border-b border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition">View projects</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="border-t border-gray-700 pt-10 reveal">
+          <h4 class="font-heading font-bold text-2xl uppercase tracking-widest mb-6 text-white">Impact</h4>
+          <p class="text-gray-400 text-sm leading-8 font-light mb-8">
+            I tie engineering to outcomes: cycle-time reduction, cost removal, and fewer manual steps. The goal is a business that can answer questions fast, act confidently, and audit how decisions were made.
+          </p>
+          <a href="#contact" class="inline-block text-[10px] font-bold uppercase tracking-widest text-white border-b border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition">Connect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24 bg-scope-black text-white">
+    <div class="container mx-auto px-6">
+      <div class="mb-16 flex flex-col md:flex-row justify-between items-end reveal">
+        <div>
+          <h2 class="font-heading font-black text-4xl md:text-5xl uppercase tracking-[0.1em] mb-2">
+            Selected Projects
+          </h2>
+          <p class="text-gray-400 font-sans max-w-xl text-sm tracking-wide leading-7">
+            Real systems work. Governance, reporting trust, automation, and AI features that can survive production constraints.
+          </p>
+        </div>
+        <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+           class="hidden md:inline-block text-xs font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-gray-400 transition mt-4 md:mt-0">
+          View GitHub
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Project 1 -->
+        <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop" alt="AI Control Plane"
+               class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
+          <div class="absolute inset-0 p-8 flex flex-col justify-end">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[10px] text-gray-300 font-heading tracking-[0.2em] mb-2 uppercase">Applied AI · Governance</p>
+              <h3 class="font-heading font-bold text-2xl uppercase tracking-widest mb-4 text-white">AI Control Plane</h3>
+              <p class="text-sm text-gray-200 mb-6 line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                A governance-first orchestration layer that validates intake, redacts sensitive signals, gates execution behind approvals, and writes append-only audit logs. Designed to safely route multi-agent workflows before they touch real systems.
+              </p>
+              <div class="flex gap-3">
+                <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+                   class="inline-block text-[10px] font-bold uppercase tracking-widest border border-white px-4 py-2 hover:bg-white hover:text-black transition">
+                  View Code
+                </a>
+                <a href="#contact"
+                   class="inline-block text-[10px] font-bold uppercase tracking-widest border border-white/50 px-4 py-2 hover:border-white hover:bg-white/10 transition">
+                  Discuss
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Enterprise Reporting Platform"
+               class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
+          <div class="absolute inset-0 p-8 flex flex-col justify-end">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[10px] text-gray-300 font-heading tracking-[0.2em] mb-2 uppercase">Business Systems · BI</p>
+              <h3 class="font-heading font-bold text-2xl uppercase tracking-widest mb-4 text-white">Enterprise Reporting Platform</h3>
+              <p class="text-sm text-gray-200 mb-6 line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                Governed reporting across operations and finance with consistent definitions, release discipline, and performance tuning. Built to reduce decision latency and remove “spreadsheet truth” from executive conversations.
+              </p>
+              <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+                 class="inline-block text-[10px] font-bold uppercase tracking-widest border border-white px-4 py-2 hover:bg-white hover:text-black transition">
+                View Work
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 (full width) -->
+        <div class="group relative bg-scope-dark overflow-hidden md:col-span-2 h-[520px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" alt="Executive Command Center"
+               class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700">
+          <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8">
+            <div class="max-w-3xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[10px] text-gray-300 font-heading tracking-[0.2em] mb-4 uppercase">Operating Rhythm · Exec Metrics</p>
+              <h3 class="font-heading font-black text-4xl uppercase tracking-widest mb-6 text-white">Executive Command Center</h3>
+              <p class="text-sm text-gray-100 mb-8 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                A C-suite dashboard built around decision workflows: exceptions, root-cause views, and drill paths back to source systems. Designed to reduce meeting time, improve accountability, and tighten planning loops.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center opacity-0 group-hover:opacity-100 duration-500 delay-200">
+                <a href="#contact"
+                   class="btn-premium inline-flex items-center justify-center bg-white text-black px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-100 transition">
+                  Request a walkthrough
+                </a>
+                <a href="https://www.linkedin.com/in/nicholashidalgo/" target="_blank" rel="noreferrer"
+                   class="btn-premium inline-flex items-center justify-center border border-white/60 text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:border-white hover:bg-white/10 transition">
+                  Connect on LinkedIn
+                </a>
+              </div>
+              <div class="mt-5 text-[10px] uppercase tracking-[0.26em] text-gray-200/70 opacity-0 group-hover:opacity-100 duration-500 delay-200">
+                Patterns: definition control · quality gates · auditability · performance
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
+          <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2232&auto=format&fit=crop" alt="Data Quality Automation"
+               class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
+          <div class="absolute inset-0 p-8 flex flex-col justify-end">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[10px] text-gray-300 font-heading tracking-[0.2em] mb-2 uppercase">Data Integrity · Automation</p>
+              <h3 class="font-heading font-bold text-2xl uppercase tracking-widest mb-4 text-white">Data Quality Gates</h3>
+              <p class="text-sm text-gray-200 mb-6 line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                Automated checks that catch broken joins, invalid hierarchies, and definition drift before stakeholders see it. Designed for legacy ERPs and layered BI stacks where “one bad extract” can derail reporting for days.
+              </p>
+              <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+                 class="inline-block text-[10px] font-bold uppercase tracking-widest border border-white px-4 py-2 hover:bg-white hover:text-black transition">
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="group relative bg-scope-dark overflow-hidden h-[450px] border border-gray-800 hover:border-white transition-colors duration-500 card-lift reveal">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop" alt="Semantic Search"
+               class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700">
+          <div class="absolute inset-0 p-8 flex flex-col justify-end">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[10px] text-gray-300 font-heading tracking-[0.2em] mb-2 uppercase">RAG · Vector Search</p>
+              <h3 class="font-heading font-bold text-2xl uppercase tracking-widest mb-4 text-white">Catalog Semantic Search</h3>
+              <p class="text-sm text-gray-200 mb-6 line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                A retrieval-first search approach for messy product data: normalize inputs, embed, retrieve, and return results that match intent, not exact wording. Built for B2B discovery where taxonomy is never perfect.
+              </p>
+              <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+                 class="inline-block text-[10px] font-bold uppercase tracking-widest border border-white px-4 py-2 hover:bg-white hover:text-black transition">
+                View Work
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-16 border-t border-gray-800 pt-10 reveal">
+        <div class="max-w-4xl">
+          <div class="text-[10px] uppercase tracking-[0.28em] text-gray-400">Positioning</div>
+          <div class="mt-3 text-xl md:text-2xl font-heading font-bold text-white tracking-wide">
+            I build systems that make decisions faster, safer, and repeatable.
+          </div>
+          <p class="mt-4 text-gray-300 leading-7">
+            If your organization is modernizing BI, cleaning up a legacy ERP reality, or trying to ship AI without introducing risk, this is the lane I work in.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-28 bg-black text-white border-t border-gray-900">
+    <div class="container mx-auto px-8">
+      <div class="flex flex-col md:flex-row gap-16">
+
+        <div class="w-full md:w-1/2 reveal">
+          <h2 class="font-heading font-black text-4xl md:text-5xl uppercase tracking-[0.1em] mb-6">
+            Let's Connect
+          </h2>
+          <p class="text-gray-400 text-sm leading-8 font-light mb-8 max-w-md">
+            Open to leadership opportunities, advisory work, and technical collaboration in enterprise data platforms, business systems, and applied AI.
+          </p>
+          <a href="mailto:contact@nicholashidalgo.com" class="btn-premium inline-block bg-white text-black text-xs font-bold uppercase tracking-widest px-8 py-4 hover:bg-gray-200 transition"
+             onmousemove="window.__btnGlow(event)">
+            Send an Email
+          </a>
+
+          <div class="mt-10 text-[10px] uppercase tracking-[0.28em] text-gray-500">
+            Preferred: concise context + what you’re trying to fix
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col justify-center reveal">
+          <div class="grid grid-cols-1 gap-8">
+
+            <div class="flex items-start gap-4 group cursor-pointer">
+              <div class="w-10 h-10 border border-gray-700 flex items-center justify-center group-hover:border-white transition">
+                <i class="fas fa-envelope text-gray-400 group-hover:text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-widest mb-1 text-gray-500">Email</h4>
+                <a href="mailto:contact@nicholashidalgo.com" class="text-lg font-heading font-medium text-white hover:text-gray-300 transition">contact@nicholashidalgo.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-10 h-10 border border-gray-700 flex items-center justify-center group-hover:border-white transition">
+                <i class="fas fa-map-marker-alt text-gray-400 group-hover:text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-widest mb-1 text-gray-500">Location</h4>
+                <p class="text-lg font-heading font-medium text-white">Boston, Massachusetts</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-10 h-10 border border-gray-700 flex items-center justify-center group-hover:border-white transition">
+                <i class="fas fa-share-alt text-gray-400 group-hover:text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-widest mb-2 text-gray-500">Social</h4>
+                <div class="flex gap-6">
+                  <a href="https://www.linkedin.com/in/nicholashidalgo/" target="_blank" rel="noreferrer"
+                     class="text-sm font-heading font-bold text-white border-b border-gray-700 hover:border-white pb-1 transition uppercase tracking-wider">LinkedIn</a>
+                  <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer"
+                     class="text-sm font-heading font-bold text-white border-b border-gray-700 hover:border-white pb-1 transition uppercase tracking-wider">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-24 border-t border-gray-200">
+    <div class="container mx-auto px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-8 md:mb-0">
+          <h2 class="text-black font-heading font-black text-3xl tracking-[0.2em] uppercase mb-2">
+            NICHOLAS<span class="font-light">HIDALGO</span>
+          </h2>
+          <p class="text-[10px] uppercase tracking-widest text-gray-500">&copy; 2026 All Rights Reserved.</p>
+        </div>
+
+        <div class="flex gap-8 font-heading font-bold text-[10px] uppercase tracking-widest text-gray-600">
+          <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer" class="hover:text-black transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/nicholashidalgo/" target="_blank" rel="noreferrer" class="hover:text-black transition">LinkedIn</a>
+          <a href="mailto:contact@nicholashidalgo.com" class="hover:text-black transition">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: Sticky Header + Reveal on scroll + Parallax + Premium button glow -->
+  <script>
+    // Sticky header
+    window.addEventListener("scroll", function () {
+      const nav = document.getElementById("main-nav");
+      if (window.scrollY > 40) nav.classList.add("nav-scrolled");
+      else nav.classList.remove("nav-scrolled");
+    });
+
+    // Reveal on scroll
+    (function () {
+      const nodes = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("reveal-in");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      nodes.forEach((n) => io.observe(n));
+    })();
+
+    // Subtle parallax for hero background (very light)
+    (function () {
+      const bg = document.getElementById("hero-bg");
+      if (!bg) return;
+
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+          const y = window.scrollY || 0;
+          const offset = Math.min(18, y * 0.03);
+          bg.style.transform = "scale(1.10) translate3d(0, " + offset + "px, 0)";
+          ticking = false;
+        });
+      });
+    })();
+
+    // Premium button glow tracking
+    window.__btnGlow = function (ev) {
+      const el = ev.currentTarget;
+      const rect = el.getBoundingClientRect();
+      const mx = ((ev.clientX - rect.left) / rect.width) * 100;
+      const my = ((ev.clientY - rect.top) / rect.height) * 100;
+      el.style.setProperty("--mx", mx + "%");
+      el.style.setProperty("--my", my + "%");
+    };
+  </script>
+</body>
+</html>

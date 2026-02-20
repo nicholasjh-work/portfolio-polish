@@ -223,7 +223,7 @@
           <a href="#articles" class="nav-link" data-i18n="nav_writing">Writing</a>
           <a href="#about" class="nav-link" data-i18n="nav_philosophy">Philosophy</a>
           <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
-          <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+          <button onclick="toggleContactModal()" class="nav-link" data-i18n="nav_contact">Contact</button>
         </div>
 
         <!-- Right: Socials & Language -->
@@ -244,7 +244,17 @@
               <div class="bg-black border border-white/10 shadow-premium min-w-[120px] flex flex-col max-h-64 overflow-y-auto custom-scrollbar">
                 <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('en')">English</button>
                 <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('es')">Español</button>
-                <!-- Other languages dynamically populate here if added to i18n.js -->
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('pt')">Português</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('fr')">Français</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('de')">Deutsch</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('it')">Italiano</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('ru')">Русский</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('uk')">Українська</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('be')">Беларуская</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('ar')">العربية</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('zh')">中文 (简)</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('ja')">日本語</button>
+                <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('hi')">हिन्दी</button>
               </div>
             </div>
           </div>
@@ -408,34 +418,34 @@
         <h2 class="font-heading font-black text-3xl md:text-4xl uppercase tracking-[0.1em] mb-4" data-i18n="stack_title">
           Core Stack & Integrations
         </h2>
-        <div class="w-16 h-1 bg-white/20 mx-auto"></div>
-        <p class="mt-6 text-gray-400 font-sans max-w-xl text-sm tracking-wide leading-7">
-          The platforms, tools, and pipelines I orchestrate to connect enterprise operations to actionable data and production AI.
-        </p>
-      </div>
-
-      <!-- Icon Grid: Pulled from Simple Icons CDN in White -->
+      <!-- Icon Grid: Upgraded to jsdelivr for adblocker immunity and production stability -->
       <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 gap-x-8 gap-y-12 items-center justify-items-center opacity-70 reveal">
-        <img src="https://cdn.simpleicons.org/slack/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Slack" alt="Slack" />
-        <img src="https://cdn.simpleicons.org/figma/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Figma" alt="Figma" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/slack.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Slack" alt="Slack" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Figma" alt="Figma" />
+        
+        <!-- Text Fallback for Carta -->
         <div class="flex items-center font-heading font-bold text-[11px] uppercase tracking-widest hover:scale-110 hover:text-white transition-all cursor-pointer select-none" title="Carta">CARTA</div>
-        <img src="https://cdn.simpleicons.org/microsoftteams/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Teams" alt="Teams" />
-        <img src="https://cdn.simpleicons.org/postman/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Postman" alt="Postman" />
-        <img src="https://cdn.simpleicons.org/linear/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Linear" alt="Linear" />
-        <img src="https://cdn.simpleicons.org/powerbi/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="PowerBI" alt="PowerBI" />
-        <img src="https://cdn.simpleicons.org/microsoftazure/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Azure" alt="Azure" />
-        <img src="https://cdn.simpleicons.org/tableau/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Tableau" alt="Tableau" />
-        <img src="https://cdn.simpleicons.org/miro/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Miro" alt="Miro" />
-        <img src="https://cdn.simpleicons.org/railway/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Railway" alt="Railway" />
+        
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftteams.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Teams" alt="Teams" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postman.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Postman" alt="Postman" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linear.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Linear" alt="Linear" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="PowerBI" alt="PowerBI" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftazure.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Azure" alt="Azure" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tableau.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Tableau" alt="Tableau" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/miro.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Miro" alt="Miro" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/railway.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Railway" alt="Railway" />
+        
+        <!-- Text Fallback for mermaid.ai -->
         <div class="flex items-center font-heading font-bold text-[10px] uppercase tracking-widest hover:scale-110 hover:text-white transition-all cursor-pointer select-none" title="Mermaid.ai">MERMAID</div>
-        <img src="https://cdn.simpleicons.org/netlify/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Netlify" alt="Netlify" />
-        <img src="https://cdn.simpleicons.org/make/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Make" alt="Make" />
-        <img src="https://cdn.simpleicons.org/snowflake/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Snowflake" alt="Snowflake" />
-        <img src="https://cdn.simpleicons.org/hubspot/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="HubSpot" alt="HubSpot" />
-        <img src="https://cdn.simpleicons.org/n8n/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="n8n" alt="n8n" />
-        <img src="https://cdn.simpleicons.org/substack/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Substack" alt="Substack" />
-        <img src="https://cdn.simpleicons.org/docker/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Docker" alt="Docker" />
-        <img src="https://cdn.simpleicons.org/notion/white" class="w-9 h-9 hover:scale-110 hover:opacity-100 transition-all cursor-pointer" title="Notion" alt="Notion" />
+        
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/netlify.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Netlify" alt="Netlify" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/make.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Make" alt="Make" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/snowflake.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Snowflake" alt="Snowflake" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hubspot.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="HubSpot" alt="HubSpot" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/n8n.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="n8n" alt="n8n" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/substack.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Substack" alt="Substack" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Docker" alt="Docker" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/notion.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Notion" alt="Notion" />
       </div>
     </div>
   </section>
@@ -671,6 +681,19 @@
       setInterval(createEmber, 40);
       setInterval(createSmoke, 200);
     })();
+
+    // --- 4. Deep Linking for Modal ---
+    // Auto-open modal if routed from an article's footer link (/#contact)
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash === '#contact') {
+        // Slight delay ensures DOM is fully painted before triggering CSS transitions
+        setTimeout(() => {
+          toggleContactModal();
+          // Clean the URL hash so the modal doesn't re-trigger on a manual page refresh
+          history.replaceState(null, null, window.location.pathname);
+        }, 150);
+      }
+    });
   </script>
 </body>
 </html>

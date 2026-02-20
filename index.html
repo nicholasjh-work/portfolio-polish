@@ -235,7 +235,7 @@
             <i class="fab fa-linkedin text-xl"></i>
           </a>
           
-          <!-- Language Selector Dropdown -->
+          <!-- FULL LANGUAGE SELECTOR UI -->
           <div class="relative group border-l border-white/20 pl-6 ml-2">
             <button id="lang-display" class="text-white text-[10px] font-bold uppercase tracking-widest hover:text-gray-300 transition flex items-center gap-1">
               EN <i class="fas fa-chevron-down text-[8px] opacity-70"></i>
@@ -267,7 +267,7 @@
   <!-- Hero -->
   <header id="home" class="relative h-screen min-h-[720px] flex items-center justify-center overflow-hidden bg-black">
 
-    <!-- Cinematic Rocket Launch Background (Unbranded & Higher Transparency) -->
+    <!-- Cinematic Rocket Launch Background (Unbranded) -->
     <div class="absolute inset-0 z-0 overflow-hidden bg-black">
       <img
         src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop"
@@ -279,7 +279,7 @@
       <!-- Engine Glow Core -->
       <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[300px]" style="background: radial-gradient(ellipse at bottom, rgba(255, 120, 0, 0.25), transparent 70%); filter: blur(40px);"></div>
       
-      <!-- Gradients to keep text readable but rocket highly visible -->
+      <!-- Gradients -->
       <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.95) 100%);"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/95"></div>
       
@@ -340,7 +340,7 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-16">
-        <a href="writing/ai-demos-vs-production.html" class="group cursor-pointer reveal block">
+        <a href="ai-demos-vs-production.html" class="group cursor-pointer reveal block">
           <div class="overflow-hidden mb-8 relative aspect-[4/3] shadow-subtle">
             <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2006&auto=format&fit=crop" alt="AI Leadership"
                  class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 grayscale group-hover:grayscale-0">
@@ -355,7 +355,7 @@
           <span class="inline-block text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 group-hover:text-gray-600 group-hover:border-gray-600 transition" data-i18n="btn_read">Read Article</span>
         </a>
 
-        <a href="writing/reporting-people-actually-use.html" class="group cursor-pointer reveal block">
+        <a href="reporting-people-actually-use.html" class="group cursor-pointer reveal block">
           <div class="overflow-hidden mb-8 relative aspect-[4/3] shadow-subtle">
             <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop" alt="Workspace"
                  class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 grayscale group-hover:grayscale-0">
@@ -418,14 +418,16 @@
         <h2 class="font-heading font-black text-3xl md:text-4xl uppercase tracking-[0.1em] mb-4" data-i18n="stack_title">
           Core Stack & Integrations
         </h2>
-      <!-- Icon Grid: Upgraded to jsdelivr for adblocker immunity and production stability -->
+        <div class="w-16 h-1 bg-white/20 mx-auto"></div>
+        <p class="mt-6 text-gray-400 font-sans max-w-xl text-sm tracking-wide leading-7">
+          The platforms, tools, and pipelines I orchestrate to connect enterprise operations to actionable data and production AI.
+        </p>
+      </div>
+
       <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 gap-x-8 gap-y-12 items-center justify-items-center opacity-70 reveal">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/slack.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Slack" alt="Slack" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Figma" alt="Figma" />
-        
-        <!-- Text Fallback for Carta -->
         <div class="flex items-center font-heading font-bold text-[11px] uppercase tracking-widest hover:scale-110 hover:text-white transition-all cursor-pointer select-none" title="Carta">CARTA</div>
-        
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoftteams.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Teams" alt="Teams" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postman.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Postman" alt="Postman" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linear.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Linear" alt="Linear" />
@@ -434,10 +436,7 @@
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tableau.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Tableau" alt="Tableau" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/miro.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Miro" alt="Miro" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/railway.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Railway" alt="Railway" />
-        
-        <!-- Text Fallback for mermaid.ai -->
         <div class="flex items-center font-heading font-bold text-[10px] uppercase tracking-widest hover:scale-110 hover:text-white transition-all cursor-pointer select-none" title="Mermaid.ai">MERMAID</div>
-        
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/netlify.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Netlify" alt="Netlify" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/make.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Make" alt="Make" />
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/snowflake.svg" class="w-9 h-9 invert hover:scale-110 transition-all cursor-pointer" title="Snowflake" alt="Snowflake" />
@@ -510,7 +509,7 @@
         <div class="flex gap-8 font-heading font-bold text-[10px] uppercase tracking-widest text-gray-600">
           <a href="https://github.com/nicholasjh-work" target="_blank" rel="noreferrer" class="hover:text-black transition">GitHub</a>
           <a href="https://www.linkedin.com/in/nicholashidalgo/" target="_blank" rel="noreferrer" class="hover:text-black transition">LinkedIn</a>
-          <a href="mailto:contact@nicholashidalgo.com" class="hover:text-black transition">Email</a>
+          <button onclick="toggleContactModal()" class="hover:text-black transition" data-i18n="nav_contact">Contact</button>
         </div>
       </div>
     </div>
@@ -522,8 +521,8 @@
       Initiate Contact
     </div>
     <div class="w-14 h-14 rounded-full border border-white/20 overflow-hidden shadow-subtle transition-all duration-300 group-hover:border-white group-hover:scale-105 bg-scope-black flex items-center justify-center">
-      <!-- UPDATE HEADSHOT PATH HERE -->
-      <img src="/assets/images/headshot.jpg" alt="Nicholas Hidalgo" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+      <!-- NOTE: Drop your headshot path here -->
+      <img src="headshot.jpg" alt="Nicholas Hidalgo" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'" />
     </div>
   </button>
 
@@ -568,7 +567,8 @@
     </div>
   </div>
 
-  <script src="/i18n.js"></script>
+  <!-- THE I18N SCRIPT IMPORT (CRITICAL) -->
+  <script src="i18n.js"></script>
 
   <!-- Core Scripts -->
   <script>
@@ -619,7 +619,6 @@
       const container = document.getElementById('propulsion-particles');
       if (!container) return;
 
-      // Generates glowing embers firing downwards
       function createEmber() {
         const ember = document.createElement('div');
         ember.classList.add('ember');
@@ -683,13 +682,10 @@
     })();
 
     // --- 4. Deep Linking for Modal ---
-    // Auto-open modal if routed from an article's footer link (/#contact)
     document.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash === '#contact') {
-        // Slight delay ensures DOM is fully painted before triggering CSS transitions
         setTimeout(() => {
           toggleContactModal();
-          // Clean the URL hash so the modal doesn't re-trigger on a manual page refresh
           history.replaceState(null, null, window.location.pathname);
         }, 150);
       }

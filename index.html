@@ -82,8 +82,8 @@
 
     /* Cinematic Pan Animation */
     @keyframes slowPanUp {
-      0% { transform: scale(1.15) translateY(-3%); }
-      100% { transform: scale(1.15) translateY(3%); }
+      0% { transform: scale(1.15) translateY(-2%); }
+      100% { transform: scale(1.15) translateY(2%); }
     }
     .bg-shuttle-pan {
       animation: slowPanUp 20s ease-in-out infinite alternate;
@@ -244,7 +244,7 @@
               <div class="bg-black border border-white/10 shadow-premium min-w-[120px] flex flex-col max-h-64 overflow-y-auto custom-scrollbar">
                 <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('en')">English</button>
                 <button class="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:bg-white/5 transition" onclick="setLanguage('es')">Español</button>
-                <!-- Add other languages from i18nData here as needed -->
+                <!-- Other languages dynamically populate here if added to i18n.js -->
               </div>
             </div>
           </div>
@@ -257,21 +257,21 @@
   <!-- Hero -->
   <header id="home" class="relative h-screen min-h-[720px] flex items-center justify-center overflow-hidden bg-black">
 
-    <!-- Cinematic Rocket Launch Background -->
+    <!-- Cinematic Rocket Launch Background (Unbranded & Higher Transparency) -->
     <div class="absolute inset-0 z-0 overflow-hidden bg-black">
       <img
-        src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2070&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop"
         alt="Rocket Propulsion"
-        class="w-full h-full object-cover opacity-30 bg-shuttle-pan"
-        style="object-position: center bottom;"
+        class="w-full h-full object-cover opacity-55 bg-shuttle-pan"
+        style="object-position: center 60%;"
       />
       
       <!-- Engine Glow Core -->
-      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[300px]" style="background: radial-gradient(ellipse at bottom, rgba(255, 120, 0, 0.15), transparent 70%); filter: blur(40px);"></div>
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[300px]" style="background: radial-gradient(ellipse at bottom, rgba(255, 120, 0, 0.25), transparent 70%); filter: blur(40px);"></div>
       
-      <!-- Gradients to keep text highly readable -->
-      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 70%, #000 100%);"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
+      <!-- Gradients to keep text readable but rocket highly visible -->
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.95) 100%);"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/95"></div>
       
       <!-- JavaScript Particle Container -->
       <div id="propulsion-particles" class="absolute inset-0 z-0 overflow-hidden pointer-events-none"></div>
@@ -511,13 +511,13 @@
     <div class="bg-[#1a1a1a] border border-[#2a2a2a] px-5 py-3 shadow-premium text-white text-[10px] font-bold font-heading tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-4 group-hover:translate-x-0">
       Initiate Contact
     </div>
-    <!-- Note: Drop your actual headshot here using a relative path, e.g., src="/images/headshot.jpg" -->
     <div class="w-14 h-14 rounded-full border border-white/20 overflow-hidden shadow-subtle transition-all duration-300 group-hover:border-white group-hover:scale-105 bg-scope-black flex items-center justify-center">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Nicholas Hidalgo" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+      <!-- UPDATE HEADSHOT PATH HERE -->
+      <img src="/assets/images/headshot.jpg" alt="Nicholas Hidalgo" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
     </div>
   </button>
 
-  <!-- STYLED CONTACT MODAL (Matches "Let's Get In Touch" reference) -->
+  <!-- STYLED CONTACT MODAL -->
   <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm bg-black/80 px-4">
     <div class="bg-[#0a0a0a] border border-white/5 p-8 md:p-12 w-full max-w-lg relative transform scale-95 transition-transform duration-300 rounded-2xl shadow-2xl" id="contact-modal-content">
       <!-- Close Button -->
@@ -558,7 +558,6 @@
     </div>
   </div>
 
-  <!-- Note: Uses an absolute path so it resolves from the root regardless of the current URL -->
   <script src="/i18n.js"></script>
 
   <!-- Core Scripts -->
